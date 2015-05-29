@@ -1,0 +1,6 @@
+tmpfs            /tmp        tmpfs  defaults                            0  0
+proc             /proc       proc   nodev,noexec,nosuid                 0  0
+c1:/root         /root       nfs    rw,hard,intr,bg,timeo=600,nolock,vers=3    0  0
+c1:/hwlog        /hwlog      nfs    rw,hard,intr,bg,timeo=600,nolock,vers=3    0  0
+c1:/home         /home       nfs    rw,hard,intr,bg,timeo=600,nolock,vers=3  0  0
+/dev/removable1  /removable  ext4   defaults,users,nobootwait           0  2
