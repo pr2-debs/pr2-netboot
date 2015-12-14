@@ -4,9 +4,9 @@ TFTPBOOT=/var/lib/tftpboot
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 # Kernel version to boot on c2
-VERSION=`uname -r | sed s/'-rt'//`
+VERSION="3.18.7-rt1"
 VMLINUZ_PATH=/boot/vmlinuz-${VERSION}
-INITRD_PATH=/boot/initrd.img-${VERSION}-c2
+INITRD_PATH=/boot/initrd.img-${VERSION}
 VMLINUZ_LINK=${TFTPBOOT}/robot64/vmlinuz
 INITRD_LINK=${TFTPBOOT}/robot64/initrd.img
 
