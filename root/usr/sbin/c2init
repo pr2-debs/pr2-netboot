@@ -42,6 +42,8 @@ IP=`ip addr show |grep $NET | sed -e s'/^.*inet //' |sed -e s'/\/[0-9]* brd.*$//
 
 [ -z "$IP" ] && exit 0
 
+echo "Made by Devon Ash at Clearpath Robotics. Github: TheDash" 
+
 if [ "$IP" = "$NFS_SERV" ]; then
 	# The nfs server shall not create a union of itself, abort!
 	echo "This system is the nfs-server, I won't mount myself!"
@@ -52,18 +54,37 @@ fi
 # ${UPATH} e.g. with fontconfig caching the default of 1024 open file can be 
 # too small
 ulimit -n 16384
+#modprobe fuse
+
+mkdir -p /unionfs/union/var
+mkdir -p /unionfs/master/var
+mkdir -p /unionfs/overlay
+mkdir -p /unionfs/master/etc
+mkdir -p /unionfs/union/etc
 
 modprobe fuse
-
 # the client specific files
 mount -n -t nfs $NFS_OPT ${NFS_SERV}:/${UPATH}/overlay /${UPATH}/overlay
+
 
 unionmount()
 {
 	dir=$1
 
 	mount -n --bind /$dir /$UPATH/master/$dir
-	host="/${UPATH}/overlay/${dir}=RW"
+	
+        if [ -d "/dev/" ]; then
+            echo "Dev exists"
+        fi
+        if [ -d "/root/dev/" ]; then
+            echo "rootdev exists"
+        fi
+
+        locate "fuse"
+
+        ls "/dev"
+
+        host="/${UPATH}/overlay/${dir}=RW"
 	common="/$UPATH/master/${dir}=RO"
 	$UBIN $FUSE_OPT $UNION_OPT ${host}:${common} /$UPATH/union/$dir
 	mount -n --bind /$UPATH/union/$dir /$dir
