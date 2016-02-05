@@ -55,6 +55,7 @@ ulimit -n 16384
 
 modprobe fuse
 
+
 # the client specific files
 mount -n -t nfs $NFS_OPT ${NFS_SERV}:/${UPATH}/overlay /${UPATH}/overlay
 
@@ -64,7 +65,7 @@ unionmount()
 
 	mount -n --bind /$dir /$UPATH/master/$dir
 	host="/${UPATH}/overlay/${dir}=RW"
-	common="/$UPATH/master/${dir}=RO"
+	common="/$UPATH/master/${dir}=RW"
 	$UBIN $FUSE_OPT $UNION_OPT ${host}:${common} /$UPATH/union/$dir
 	mount -n --bind /$UPATH/union/$dir /$dir
 }
@@ -75,7 +76,7 @@ unionmount_ro()
 
 	mount -n --bind /$dir /$UPATH/master/$dir
 	host="/${UPATH}/overlay/${dir}=RW"
-	common="/$UPATH/master/${dir}=RO"
+	common="/$UPATH/master/${dir}=RW"
 
 	$UBIN $FUSE_OPT $UNION_OPT ${host}:${common} /$UPATH/union/$dir
 	mount -n --bind /$UPATH/union/$dir /$dir
