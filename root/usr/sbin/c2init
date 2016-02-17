@@ -53,11 +53,11 @@ fi
 # too small
 ulimit -n 16384
 
-modprobe fuse
-
+#modprobe fuse
 
 # the client specific files
 mount -n -t nfs $NFS_OPT ${NFS_SERV}:/${UPATH}/overlay /${UPATH}/overlay
+
 
 unionmount()
 {
@@ -83,8 +83,14 @@ unionmount_ro()
 	mount -o remount,ro /$dir
 }
 
+
+
 unionmount var
 unionmount_ro etc
+
+mount -t proc /root/proc /proc
+mount devpts
+#mount -t proc /proc /root/proc
 
 # Run init
 exec /sbin/init "$@"
