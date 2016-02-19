@@ -82,9 +82,7 @@
 # specified interfaces (and the loopback) give the name of the
 # interface (eg eth0) here.
 # Repeat the line for more than one interface.
-interface=lan0
-interface=eth0
-interface=wlan0
+interface=br0
 # Or you can specify which interface _not_ to listen on
 #except-interface=
 # Or which to listen on by address (remember to include 127.0.0.1 if
@@ -379,7 +377,7 @@ dhcp-boot=pxelinux.0
 #dhcp-script=/bin/echo
 
 # Set the cachesize here.
-#cache-size=150
+cache-size=1500
 
 # If you want to disable negative caching, uncomment this.
 #no-negcache
