@@ -88,9 +88,6 @@ unionmount_ro()
 unionmount var
 unionmount_ro etc
 
-mount -t proc /root/proc /proc
-mount devpts
-#mount -t proc /proc /root/proc
 
 # Run init
 exec /sbin/init "$@"
