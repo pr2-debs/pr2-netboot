@@ -17,8 +17,12 @@ SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:23:8b:??:??:?
 
 #NEW MOTHERBOARDS
 
-# PCI device 0x8086:0x10a7 (igb)
+## PCI device 0x8086:0x10a7 (igb)
 SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:1e:68:??:??:?[02468ace]", ATTR{type}=="1", KERNEL=="eth*", NAME="lan0"
-
 # PCI device 0x8086:0x10a7 (igb)
 SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:1e:68:??:??:?[13579bdf]", ATTR{type}=="1", KERNEL=="eth*", NAME="lan1"
+
+# CLEARPATH LAN PORTS
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="d0:50:99:??:??:?[02468ace]", ATTR{type}=="1", KERNEL="eth*", NAME="lan0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="d0:50:99:??:??:?[13579bdf]", ATTR{type}=="1", KERNEL="eth*", NAME="lan1"
+
