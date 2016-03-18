@@ -20,7 +20,8 @@ case "$1" in
     rpcbind
 
     # Make the initramfs for c2
-    mkinitramfs -v -d /etc/initramfs-tools.c2 -o ${INITRD_PATH} ${VERSION}
+    # Note, (by Devon Ash), this fucking breaks the netboot process. do not use this or the config in initramfs.conf to override the initrd for any kernels.
+    #mkinitramfs -v -d /etc/initramfs-tools.c2 -o ${INITRD_PATH} ${VERSION}
 
     # Remove the new kernel links
     (rm -f ${VMLINUZ_LINK} || ES=$?)
