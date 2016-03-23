@@ -15,7 +15,7 @@
 # list - Only include modules from the 'additional modules' list
 #
 
-MODULES=most
+MODULES=netboot
 
 #
 # BUSYBOX: [ y | n ]
@@ -62,7 +62,7 @@ BOOT=nfs
 # Specify the network interface, like eth0
 #
 
-DEVICE=eth0
+DEVICE=lan0
 #
 # NFSROOT: [ auto | HOST:MOUNT ]
 #
