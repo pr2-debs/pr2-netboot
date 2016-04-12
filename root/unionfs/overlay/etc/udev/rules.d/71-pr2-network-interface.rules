@@ -23,5 +23,5 @@ SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:1e:68:??:??:?
 SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:1e:68:??:??:?[13579bdf]", ATTR{type}=="1", KERNEL=="eth*", NAME="lan1"
 
 # CLEARPATH LAN PORTS
-SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="d0:50:99:??:??:??", ATTR{type}=="1", KERNEL="eth*", NAME="eth0"
-
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="d0:50:99:??:??:[02468ace]?", ATTR{type}=="1", NAME="lan0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="d0:50:99:??:??:[13579bdf]?", ATTR{type}=="1", NAME="lan1"
