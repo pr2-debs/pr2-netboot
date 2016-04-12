@@ -82,7 +82,7 @@
 # specified interfaces (and the loopback) give the name of the
 # interface (eg eth0) here.
 # Repeat the line for more than one interface.
-interface=br0
+#interface=br0
 interface=lan0
 # Or you can specify which interface _not_ to listen on
 #except-interface=
