@@ -82,13 +82,14 @@
 # specified interfaces (and the loopback) give the name of the
 # interface (eg eth0) here.
 # Repeat the line for more than one interface.
-#interface=br0
 interface=lan0
+interface=wlan0
+
 # Or you can specify which interface _not_ to listen on
 #except-interface=
 # Or which to listen on by address (remember to include 127.0.0.1 if
 # you use this.)
-#listen-address=
+listen-address=192.168.2.1
 # If you want dnsmasq to provide only DNS service on an interface,
 # configure it as shown above, and then use the following line to
 # disable DHCP on it.
@@ -123,8 +124,15 @@ expand-hosts
 # 3) Provides the domain part for "expand-hosts"
 #domain=willowgarage.com
 
-dhcp-range=10.68.0.100,10.68.0.199,12h
+#dhcp-range=10.68.0.100,10.68.0.199,12h
+dhcp-range=lan0,10.68.0.100,10.68.0.199,12h
+dhcp-range=wlan0,192.168.2.2,192.168.2.254,255.255.255.0,12h
 
+
+dhcp-option-force=option:router,192.168.2.1
+dhcp-option-force=option:dns-server,192.168.2.1
+bind-dynamic
+no-hosts
 # Uncomment this to enable the integrated DHCP server, you need
 # to supply the range of addresses available for lease and optionally
 # a lease time. If you have more than one network, you will need to
@@ -472,7 +480,7 @@ cache-size=1500
 #log-queries
 
 # Log lots of extra information about DHCP transactions.
-#log-dhcp
+log-dhcp
 
 # Include a another lot of configuration options.
 #conf-file=/etc/dnsmasq.more.conf
