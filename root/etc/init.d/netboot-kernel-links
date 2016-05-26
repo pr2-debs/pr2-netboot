@@ -6,7 +6,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 # Kernel version to boot on c2
 VERSION="3.19.0-42-lowlatency"
 VMLINUZ_PATH=/boot/vmlinuz-${VERSION}
-INITRD_PATH=/boot/initrd.img-${VERSION}
+INITRD_PATH=/boot/initrd.img-${VERSION}.c2
 VMLINUZ_LINK=${TFTPBOOT}/robot64/vmlinuz
 INITRD_LINK=${TFTPBOOT}/robot64/initrd.img
 
