@@ -3,7 +3,7 @@ DEFAULT robot64
 TIMEOUT 3
 LABEL robot64
         kernel robot64/vmlinuz
-        append boot=nfs root=/dev/nfs selinux=0 initrd=robot64/initrd.img rw rootdelay=10 acpi=off numa=noacpi vga=extended nfsroot=10.68.0.1:/ ip=10.68.0.2:10.68.0.1:10.68.0.1:255.255.255.0:c2:eth1 noefi nomodeset init=/usr/sbin/c2init console=ttyS0,57600 console=tty1 biosdevname=0 net.ifnames=1
+        append boot=nfs root=/dev/nfs selinux=0 initrd=robot64/initrd.img rw rootdelay=10 vga=extended nfsroot=10.68.0.1:/ ip=10.68.0.2:10.68.0.1:10.68.0.1:255.255.255.0:c2:eth1 nomodeset init=/usr/sbin/c2init console=ttyS0,57600 console=tty1 biosdevname=0 net.ifnames=1
 label bmc106
         kernel memdisk
         append initrd=disk-bios3a03-bmc106-wg0.1.img
