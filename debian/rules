@@ -9,6 +9,7 @@ DEB_DIVERT_FILES_pr2-netboot += \
 	/etc/default/atftpd.pr2-netboot \
 	/etc/default/dnsmasq.pr2-netboot \
 	/etc/init.d/umountnfs.sh.pr2-netboot \
+	/etc/init.d/umountfs.pr2-netboot \
 	/etc/init.d/sendsigs.pr2-netboot \
 	/etc/init/portmap.conf.pr2-netboot \
 	/etc/dnsmasq.conf.pr2-netboot \
