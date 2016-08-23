@@ -65,7 +65,7 @@ unionmount()
 
 	mount -n --bind /$dir /$UPATH/master/$dir
 	host="/${UPATH}/overlay/${dir}=RW"
-	common="/$UPATH/master/${dir}=RW"
+	common="/$UPATH/master/${dir}=RO"
 	$UBIN $FUSE_OPT $UNION_OPT ${host}:${common} /$UPATH/union/$dir
 	mount -n --bind /$UPATH/union/$dir /$dir
 }
@@ -76,7 +76,7 @@ unionmount_ro()
 
 	mount -n --bind /$dir /$UPATH/master/$dir
 	host="/${UPATH}/overlay/${dir}=RW"
-	common="/$UPATH/master/${dir}=RW"
+	common="/$UPATH/master/${dir}=RO"
 
 	$UBIN $FUSE_OPT $UNION_OPT ${host}:${common} /$UPATH/union/$dir
 	mount -n --bind /$UPATH/union/$dir /$dir
