@@ -6,6 +6,7 @@ auto lo
 iface lo inet loopback
 
 #eth0 is not auto.  It is up from the very beginning on account of netboot.
+auto eth0
 iface eth0 inet static
   address 10.68.0.2
   netmask 255.255.255.0
